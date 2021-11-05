@@ -25,8 +25,8 @@ int main()
     cout << z2.Conjugate() << endl;
     // cout << z1.ToString() << endl;
     // cout << z2.ToString() << endl;
-    // cout << z + 2 << endl;
-    // cout << 2 + z << endl;
+    cout << z + 2 << endl;
+    cout << 2 + z << endl;
     // cout << z - 2 << endl;
     // cout << 2 - z << endl;
     cout << z * z << endl;
