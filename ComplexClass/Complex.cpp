@@ -6,16 +6,16 @@ using namespace std;
 
 Complex::Complex()
 {
-    re = 0;
-    im = 0;
-    abs = Abs(re, im);
+    this->re = 0;
+    this->im = 0;
+    this->abs = Abs(this->re, this->im);
 }
 
-Complex::Complex(double p_re, double p_im)
+Complex::Complex(double re, double im)
 {
-    re = p_re;
-    im = p_im;
-    abs = Abs(re, im);
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
 }
 
 Complex::Complex(string complex)
@@ -23,44 +23,44 @@ Complex::Complex(string complex)
     string re_s, im_s;
     char* start = &complex[0];
     char* end = NULL;
-    re = strtod(start, &end);
+    this->re = strtod(start, &end);
     if (start == end)
     {
-        re = 0;
-        im = 0;
-        abs = Abs(re, im);
+        this->re = 0;
+        this->im = 0;
+        this->abs = Abs(this->re, this->im);
     }
     start = end;
     end = NULL;
-    im = strtod(start, &end);
+    this->im = strtod(start, &end);
     if (start == end)
     {
-        re = 0;
-        im = 0;
-        abs = Abs(re, im);
+        this->re = 0;
+        this->im = 0;
+        this->abs = Abs(this->re, this->im);
     }
     if ((*end != 'i') && (*end != 'j'))
     {
-        re = 0;
-        im = 0;
-        abs = Abs(re, im);
+        this->re = 0;
+        this->im = 0;
+        this->abs = Abs(this->re, this->im);
     }
-    abs = Abs(re, im);
+    this->abs = Abs(this->re, this->im);
 }
 
-double Complex::Abs(double p_re, double p_im)
-{
-    return sqrt(p_re * p_re + p_im * p_im);
-}
-
-double Complex::Abs()
+double Complex::Abs(double re, double im)
 {
     return sqrt(re * re + im * im);
 }
 
+double Complex::Abs()
+{
+    return sqrt(this->re * this->re + this->im * this->im);
+}
+
 Complex Complex::Conjugate()
 {
-    return Complex(re, -im);
+    return Complex(this->re, -this->im);
 }
 
 Complex operator+(Complex z1, Complex z2)
@@ -154,21 +154,21 @@ ostream& operator<<(ostream& out, Complex z)
 
 string Complex::ToString()
 {
-    if ((re != 0) && (im != 0))
+    if ((this->re != 0) && (this->im != 0))
     {
-        if (im >= 0)
-            return to_string(re) + '+' + to_string(im) + 'j';
+        if (this->im >= 0)
+            return to_string(this->re) + '+' + to_string(this->im) + 'j';
         else // if (im < 0)
-            return to_string(re) + to_string(im) + 'j';
+            return to_string(this->re) + to_string(this->im) + 'j';
     }
     else
     {
-        if (re != 0)
-            return to_string(re);
+        if (this->re != 0)
+            return to_string(this->re);
         else
         {
-            if (im != 0)
-                return to_string(im) + 'j';
+            if (this->im != 0)
+                return to_string(this->im) + 'j';
             else
                 return to_string(0);
         }
