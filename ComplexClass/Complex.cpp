@@ -18,6 +18,20 @@ Complex::Complex(double re, double im)
     this->abs = Abs(this->re, this->im);
 }
 
+Complex::Complex(float re, float im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+}
+
+Complex::Complex(int re, int im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+}
+
 Complex::Complex(string complex)
 {
     string re_s, im_s;
@@ -73,9 +87,53 @@ Complex operator+(Complex z, double d)
     return Complex(z.re + d, z.im);
 }
 
+Complex operator+(Complex z, float d)
+{
+    return Complex(z.re + d, z.im);
+}
+
+Complex operator+(Complex z, int d)
+{
+    return Complex(z.re + d, z.im);
+}
+
 Complex operator+(double d, Complex z)
 {
     return Complex(d + z.re, z.im);
+}
+
+Complex operator+(float d, Complex z)
+{
+    return Complex(d + z.re, z.im);
+}
+
+Complex operator+(int d, Complex z)
+{
+    return Complex(d + z.re, z.im);
+}
+
+Complex& operator+=(Complex& z1, Complex& z2)
+{
+    z1 = z1 + z2;
+    return z1;
+}
+
+Complex& operator+=(Complex& z1, double& d)
+{
+    z1 = z1 + d;
+    return z1;
+}
+
+Complex& operator+=(Complex& z1, float& d)
+{
+    z1 = z1 + d;
+    return z1;
+}
+
+Complex& operator+=(Complex& z1, int& d)
+{
+    z1 = z1 + d;
+    return z1;
 }
 
 Complex operator-(Complex z1, Complex z2)
@@ -88,9 +146,53 @@ Complex operator-(Complex z, double d)
     return Complex(z.re - d, z.im);
 }
 
+Complex operator-(Complex z, float d)
+{
+    return Complex(z.re - d, z.im);
+}
+
+Complex operator-(Complex z, int d)
+{
+    return Complex(z.re - d, z.im);
+}
+
 Complex operator-(double d, Complex z)
 {
     return Complex(d - z.re, z.im);
+}
+
+Complex operator-(float d, Complex z)
+{
+    return Complex(d - z.re, z.im);
+}
+
+Complex operator-(int d, Complex z)
+{
+    return Complex(d - z.re, z.im);
+}
+
+Complex& operator-=(Complex& z1, Complex& z2)
+{
+    z1 = z1 - z2;
+    return z1;
+}
+
+Complex& operator-=(Complex& z1, double& d)
+{
+    z1 = z1 - d;
+    return z1;
+}
+
+Complex& operator-=(Complex& z1, float& d)
+{
+    z1 = z1 - d;
+    return z1;
+}
+
+Complex& operator-=(Complex& z1, int& d)
+{
+    z1 = z1 - d;
+    return z1;
 }
 
 Complex operator*(Complex z1, Complex z2)
@@ -103,9 +205,53 @@ Complex operator*(Complex z, double d)
     return Complex(z.re * d, z.im * d);
 }
 
+Complex operator*(Complex z, float d)
+{
+    return Complex(z.re * d, z.im * d);
+}
+
+Complex operator*(Complex z, int d)
+{
+    return Complex(z.re * d, z.im * d);
+}
+
 Complex operator*(double d, Complex z)
 {
     return Complex(z.re * d, z.im * d);
+}
+
+Complex operator*(float d, Complex z)
+{
+    return Complex(z.re * d, z.im * d);
+}
+
+Complex operator*(int d, Complex z)
+{
+    return Complex(z.re * d, z.im * d);
+}
+
+Complex& operator*=(Complex& z1, Complex& z2)
+{
+    z1 = z1 * z2;
+    return z1;
+}
+
+Complex& operator*=(Complex& z1, double& d)
+{
+    z1 = z1 * d;
+    return z1;
+}
+
+Complex& operator*=(Complex& z1, float& d)
+{
+    z1 = z1 * d;
+    return z1;
+}
+
+Complex& operator*=(Complex& z1, int& d)
+{
+    z1 = z1 * d;
+    return z1;
 }
 
 Complex operator/(Complex z1, Complex z2)
@@ -120,12 +266,62 @@ Complex operator/(Complex z, double d)
     return Complex(z.re / d, z.im / d);
 }
 
+Complex operator/(Complex z, float d)
+{
+    return Complex(z.re / d, z.im / d);
+}
+
+Complex operator/(Complex z, int d)
+{
+    return Complex(z.re / d, z.im / d);
+}
+
 Complex operator/(double d, Complex z)
 {
     Complex zz = Complex(d);
     double resRe = (zz.re * z.re + zz.im * z.im) / (z.re * z.re + z.im * z.im);
     double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re + z.im * z.im);
     return Complex(resRe, resIm);
+}
+
+Complex operator/(float d, Complex z)
+{
+    Complex zz = Complex(d);
+    double resRe = (zz.re * z.re + zz.im * z.im) / (z.re * z.re + z.im * z.im);
+    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re + z.im * z.im);
+    return Complex(resRe, resIm);
+}
+
+Complex operator/(int d, Complex z)
+{
+    Complex zz = Complex(d);
+    double resRe = (zz.re * z.re + zz.im * z.im) / (z.re * z.re + z.im * z.im);
+    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re + z.im * z.im);
+    return Complex(resRe, resIm);
+}
+
+Complex& operator/=(Complex& z1, Complex& z2)
+{
+    z1 = z1 / z2;
+    return z1;
+}
+
+Complex& operator/=(Complex& z1, double& d)
+{
+    z1 = z1 / d;
+    return z1;
+}
+
+Complex& operator/=(Complex& z1, float& d)
+{
+    z1 = z1 / d;
+    return z1;
+}
+
+Complex& operator/=(Complex& z1, int& d)
+{
+    z1 = z1 / d;
+    return z1;
 }
 
 ostream& operator<<(ostream& out, Complex z)

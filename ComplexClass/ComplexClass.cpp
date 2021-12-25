@@ -35,6 +35,8 @@ int main()
     cout << z / z << endl;
     cout << z / 2 << endl;
     cout << 2 / z << endl;
+    z0 += z;
+    cout << z0 << endl;
     system("pause");
     return 0;
 }
