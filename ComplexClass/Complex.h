@@ -1,8 +1,10 @@
 #pragma once
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <string>
 #include <iostream>
 using namespace std;
+
 
 /// <summary>
 /// Комплексное число
@@ -41,7 +43,9 @@ public:
     /// <param name="re">- вещественная часть комплексного числа</param>
     /// <param name="im">- мнимая часть комплексного числа, по умолчанию - 0</param>
     Complex(double re, double im = 0);
+
     Complex(float re, float im = 0);
+
     Complex(int re, int im = 0);
 
     /// <summary>
@@ -64,6 +68,10 @@ public:
     /// <returns>Модуль комплексного числа</returns>
     double Abs();
 
+    double Arg(double re, double im);
+
+    double Arg();
+
     /// <summary>
     /// Комплексно-сопряженное число
     /// </summary>
@@ -85,7 +93,9 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <returns>Сумма комплексного и вещественного чисел</returns>
     friend Complex operator+(Complex z, double d);
+
     friend Complex operator+(Complex z, float d);
+
     friend Complex operator+(Complex z, int d);
 
     /// <summary>
@@ -95,12 +105,17 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <returns>Сумма вещественного и комплексного чисел</returns>
     friend Complex operator+(double d, Complex z);
+
     friend Complex operator+(float d, Complex z);
+
     friend Complex operator+(int d, Complex z);
 
     friend Complex& operator+=(Complex& z1, Complex& z2);
+
     friend Complex& operator+=(Complex& z1, double& d);
+
     friend Complex& operator+=(Complex& z1, float& d);
+
     friend Complex& operator+=(Complex& z1, int& d);
 
     /// <summary>
@@ -118,7 +133,9 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <returns>Разность комплексного и вещественного чисел</returns>
     friend Complex operator-(Complex z, double d);
+
     friend Complex operator-(Complex z, float d);
+
     friend Complex operator-(Complex z, int d);
 
     /// <summary>
@@ -128,12 +145,17 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <returns>Разность вещественного и комплексного чисел</returns>
     friend Complex operator-(double d, Complex z);
+
     friend Complex operator-(float d, Complex z);
+
     friend Complex operator-(int d, Complex z);
 
     friend Complex& operator-=(Complex& z1, Complex& z2);
+
     friend Complex& operator-=(Complex& z1, double& d);
+
     friend Complex& operator-=(Complex& z1, float& d);
+
     friend Complex& operator-=(Complex& z1, int& d);
 
     /// <summary>
@@ -151,7 +173,9 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <returns>Произведение комплексного и вещественного чисел</returns>
     friend Complex operator*(Complex z, double d);
+
     friend Complex operator*(Complex z, float d);
+
     friend Complex operator*(Complex z, int d);
 
     /// <summary>
@@ -161,12 +185,17 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <returns>Произведение комплексного и вещественного чисел</returns>
     friend Complex operator*(double d, Complex z);
+
     friend Complex operator*(float d, Complex z);
+
     friend Complex operator*(int d, Complex z);
 
     friend Complex& operator*=(Complex& z1, Complex& z2);
+
     friend Complex& operator*=(Complex& z1, double& d);
+
     friend Complex& operator*=(Complex& z1, float& d);
+
     friend Complex& operator*=(Complex& z1, int& d);
 
     /// <summary>
@@ -184,7 +213,9 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <returns>Частное комплексного и вещественного чисел</returns>
     friend Complex operator/(Complex z, double d);
+
     friend Complex operator/(Complex z, float d);
+
     friend Complex operator/(Complex z, int d);
 
     /// <summary>
@@ -194,12 +225,17 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <returns>Частное вещественного и комплексного чисел</returns>
     friend Complex operator/(double d, Complex z);
+
     friend Complex operator/(float d, Complex z);
+
     friend Complex operator/(int d, Complex z);
 
     friend Complex& operator/=(Complex& z1, Complex& z2);
+
     friend Complex& operator/=(Complex& z1, double& d);
+
     friend Complex& operator/=(Complex& z1, float& d);
+
     friend Complex& operator/=(Complex& z1, int& d);
 
     /// <summary>

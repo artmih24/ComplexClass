@@ -1,14 +1,17 @@
 #include "Complex.h"
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <string>
 #include <iostream>
 using namespace std;
+
 
 Complex::Complex()
 {
     this->re = 0;
     this->im = 0;
     this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
 }
 
 Complex::Complex(double re, double im)
@@ -16,6 +19,7 @@ Complex::Complex(double re, double im)
     this->re = re;
     this->im = im;
     this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
 }
 
 Complex::Complex(float re, float im)
@@ -23,6 +27,7 @@ Complex::Complex(float re, float im)
     this->re = re;
     this->im = im;
     this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
 }
 
 Complex::Complex(int re, int im)
@@ -30,6 +35,7 @@ Complex::Complex(int re, int im)
     this->re = re;
     this->im = im;
     this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
 }
 
 Complex::Complex(string complex)
@@ -70,6 +76,28 @@ double Complex::Abs(double re, double im)
 double Complex::Abs()
 {
     return sqrt(this->re * this->re + this->im * this->im);
+}
+
+double Complex::Arg(double re, double im)
+{
+    if (re > 0)
+        return atan(im / re);
+    else
+        if (im > 0)
+            return M_PI + atan(im / re);
+        else
+            return -M_PI + atan(im / re);
+}
+
+double Complex::Arg()
+{
+    if (this->re > 0)
+        return atan(this->im / this->re);
+    else
+        if (this->im > 0)
+            return M_PI + atan(this->im / this->re);
+        else
+            return -M_PI + atan(this->im / this->re);
 }
 
 Complex Complex::Conjugate()
