@@ -350,24 +350,24 @@ HyperbolicComplex operator/(HyperbolicComplex z, int d)
 HyperbolicComplex operator/(double d, HyperbolicComplex z)
 {
     HyperbolicComplex zz = HyperbolicComplex(d);
-    double resRe = (zz.re * z.re + zz.im * z.im) / (z.re * z.re + z.im * z.im);
-    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re + z.im * z.im);
+    double resRe = (zz.re * z.re - zz.im * z.im) / (z.re * z.re - z.im * z.im);
+    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re - z.im * z.im);
     return HyperbolicComplex(resRe, resIm);
 }
 
 HyperbolicComplex operator/(float d, HyperbolicComplex z)
 {
     HyperbolicComplex zz = HyperbolicComplex(d);
-    double resRe = (zz.re * z.re + zz.im * z.im) / (z.re * z.re + z.im * z.im);
-    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re + z.im * z.im);
+    double resRe = (zz.re * z.re - zz.im * z.im) / (z.re * z.re - z.im * z.im);
+    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re - z.im * z.im);
     return HyperbolicComplex(resRe, resIm);
 }
 
 HyperbolicComplex operator/(int d, HyperbolicComplex z)
 {
     HyperbolicComplex zz = HyperbolicComplex(d);
-    double resRe = (zz.re * z.re + zz.im * z.im) / (z.re * z.re + z.im * z.im);
-    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re + z.im * z.im);
+    double resRe = (zz.re * z.re - zz.im * z.im) / (z.re * z.re - z.im * z.im);
+    double resIm = (z.re * zz.im - zz.re * z.im) / (z.re * z.re - z.im * z.im);
     return HyperbolicComplex(resRe, resIm);
 }
 
