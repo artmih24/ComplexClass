@@ -1,4 +1,2 @@
-﻿  Complex.cpp
-  ComplexClass.cpp
-  Создание кода...
-  ComplexClass.vcxproj -> E:\Artem\My programs\complex\ComplexClass\Debug\ComplexClass.exe
+﻿Complex.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: int __thiscall Complex::Sgn(double,double)" (?Sgn@Complex@@QAEHNN@Z) в функции "public: __thiscall Complex::Complex(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0Complex@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z).
+E:\Artem\My programs\complex\ComplexClass\Debug\ComplexClass.exe : fatal error LNK1120: неразрешенных внешних элементов: 1

@@ -5,11 +5,7 @@
 #include <iostream>
 using namespace std;
 
-
-/// <summary>
-/// Комплексное число
-/// </summary>
-class Complex
+class HyperbolicComplex
 {
 public:
     /// <summary>
@@ -39,24 +35,25 @@ public:
     /// <summary>
     /// Комплексное число по умолчанию - 0+0j
     /// </summary>
-    Complex();
+    HyperbolicComplex();
+
 
     /// <summary>
     /// Комплексное число
     /// </summary>
     /// <param name="re">- вещественная часть комплексного числа</param>
     /// <param name="im">- мнимая часть комплексного числа, по умолчанию - 0</param>
-    Complex(double re, double im = 0, string i = "j");
+    HyperbolicComplex(double re, double im = 0);
 
-    Complex(float re, float im = 0, string i = "j");
+    HyperbolicComplex(float re, float im = 0);
 
-    Complex(int re, int im = 0, string i = "j");
+    HyperbolicComplex(int re, int im = 0);
 
     /// <summary>
     /// Комплексное число
     /// </summary>
     /// <param name="complex">- строка, содержащая запись комплесного числа</param>
-    Complex(string complex);
+    HyperbolicComplex(string hyperbolicComplex);
 
     /// <summary>
     /// Модуль комплексного числа
@@ -84,9 +81,9 @@ public:
     /// Комплексно-сопряженное число
     /// </summary>
     /// <returns>Комплексно-сопряженное число</returns>
-    Complex Conjugate();
+    HyperbolicComplex Conjugate();
 
-    Complex Sqrt();
+    HyperbolicComplex Sqrt();
 
     /// <summary>
     /// Оператор сложения комплексных чисел
@@ -94,7 +91,7 @@ public:
     /// <param name="z1">- комплексное число</param>
     /// <param name="z2">- комплексное число</param>
     /// <returns>Сумма комплексных чисел</returns>
-    friend Complex operator+(Complex z1, Complex z2);
+    friend HyperbolicComplex operator+(HyperbolicComplex z1, HyperbolicComplex z2);
 
     /// <summary>
     /// Оператор сложения комплексного числа с вещественным
@@ -102,11 +99,11 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <param name="d">- вещественное число</param>
     /// <returns>Сумма комплексного и вещественного чисел</returns>
-    friend Complex operator+(Complex z, double d);
+    friend HyperbolicComplex operator+(HyperbolicComplex z, double d);
 
-    friend Complex operator+(Complex z, float d);
+    friend HyperbolicComplex operator+(HyperbolicComplex z, float d);
 
-    friend Complex operator+(Complex z, int d);
+    friend HyperbolicComplex operator+(HyperbolicComplex z, int d);
 
     /// <summary>
     /// Оператор сложения вещественного числа с комплексным
@@ -114,19 +111,19 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <param name="z">- комплексное число</param>
     /// <returns>Сумма вещественного и комплексного чисел</returns>
-    friend Complex operator+(double d, Complex z);
+    friend HyperbolicComplex operator+(double d, HyperbolicComplex z);
 
-    friend Complex operator+(float d, Complex z);
+    friend HyperbolicComplex operator+(float d, HyperbolicComplex z);
 
-    friend Complex operator+(int d, Complex z);
+    friend HyperbolicComplex operator+(int d, HyperbolicComplex z);
 
-    friend Complex& operator+=(Complex& z1, Complex& z2);
+    friend HyperbolicComplex& operator+=(HyperbolicComplex& z1, HyperbolicComplex& z2);
 
-    friend Complex& operator+=(Complex& z1, double& d);
+    friend HyperbolicComplex& operator+=(HyperbolicComplex& z1, double& d);
 
-    friend Complex& operator+=(Complex& z1, float& d);
+    friend HyperbolicComplex& operator+=(HyperbolicComplex& z1, float& d);
 
-    friend Complex& operator+=(Complex& z1, int& d);
+    friend HyperbolicComplex& operator+=(HyperbolicComplex& z1, int& d);
 
     /// <summary>
     /// Оператор вычитания комплексных чисел
@@ -134,7 +131,7 @@ public:
     /// <param name="z1">- комплексное число</param>
     /// <param name="z2">- комплексное число</param>
     /// <returns>Разность комплексных чисел</returns>
-    friend Complex operator-(Complex z1, Complex z2);
+    friend HyperbolicComplex operator-(HyperbolicComplex z1, HyperbolicComplex z2);
 
     /// <summary>
     /// Оператор вычитания вещественного числа из комплексного числа
@@ -142,11 +139,11 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <param name="d">- вещественное число</param>
     /// <returns>Разность комплексного и вещественного чисел</returns>
-    friend Complex operator-(Complex z, double d);
+    friend HyperbolicComplex operator-(HyperbolicComplex z, double d);
 
-    friend Complex operator-(Complex z, float d);
+    friend HyperbolicComplex operator-(HyperbolicComplex z, float d);
 
-    friend Complex operator-(Complex z, int d);
+    friend HyperbolicComplex operator-(HyperbolicComplex z, int d);
 
     /// <summary>
     /// Оператор вычитания комплексного числа из вещественного числа
@@ -154,19 +151,19 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <param name="z">- комплексное число</param>
     /// <returns>Разность вещественного и комплексного чисел</returns>
-    friend Complex operator-(double d, Complex z);
+    friend HyperbolicComplex operator-(double d, HyperbolicComplex z);
 
-    friend Complex operator-(float d, Complex z);
+    friend HyperbolicComplex operator-(float d, HyperbolicComplex z);
 
-    friend Complex operator-(int d, Complex z);
+    friend HyperbolicComplex operator-(int d, HyperbolicComplex z);
 
-    friend Complex& operator-=(Complex& z1, Complex& z2);
+    friend HyperbolicComplex& operator-=(HyperbolicComplex& z1, HyperbolicComplex& z2);
 
-    friend Complex& operator-=(Complex& z1, double& d);
+    friend HyperbolicComplex& operator-=(HyperbolicComplex& z1, double& d);
 
-    friend Complex& operator-=(Complex& z1, float& d);
+    friend HyperbolicComplex& operator-=(HyperbolicComplex& z1, float& d);
 
-    friend Complex& operator-=(Complex& z1, int& d);
+    friend HyperbolicComplex& operator-=(HyperbolicComplex& z1, int& d);
 
     /// <summary>
     /// Оператор умножения комплексных чисел
@@ -174,7 +171,7 @@ public:
     /// <param name="z1">- комплексное число</param>
     /// <param name="z2">- комплексное число</param>
     /// <returns></returns>
-    friend Complex operator*(Complex z1, Complex z2);
+    friend HyperbolicComplex operator*(HyperbolicComplex z1, HyperbolicComplex z2);
 
     /// <summary>
     /// Оператор умножения комплексного числа на вещественное
@@ -182,11 +179,11 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <param name="d">- вещественное число</param>
     /// <returns>Произведение комплексного и вещественного чисел</returns>
-    friend Complex operator*(Complex z, double d);
+    friend HyperbolicComplex operator*(HyperbolicComplex z, double d);
 
-    friend Complex operator*(Complex z, float d);
+    friend HyperbolicComplex operator*(HyperbolicComplex z, float d);
 
-    friend Complex operator*(Complex z, int d);
+    friend HyperbolicComplex operator*(HyperbolicComplex z, int d);
 
     /// <summary>
     /// Оператор умножения вещественного числа на комплексное
@@ -194,19 +191,19 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <param name="z">- комплексное число</param>
     /// <returns>Произведение комплексного и вещественного чисел</returns>
-    friend Complex operator*(double d, Complex z);
+    friend HyperbolicComplex operator*(double d, HyperbolicComplex z);
 
-    friend Complex operator*(float d, Complex z);
+    friend HyperbolicComplex operator*(float d, HyperbolicComplex z);
 
-    friend Complex operator*(int d, Complex z);
+    friend HyperbolicComplex operator*(int d, HyperbolicComplex z);
 
-    friend Complex& operator*=(Complex& z1, Complex& z2);
+    friend HyperbolicComplex& operator*=(HyperbolicComplex& z1, HyperbolicComplex& z2);
 
-    friend Complex& operator*=(Complex& z1, double& d);
+    friend HyperbolicComplex& operator*=(HyperbolicComplex& z1, double& d);
 
-    friend Complex& operator*=(Complex& z1, float& d);
+    friend HyperbolicComplex& operator*=(HyperbolicComplex& z1, float& d);
 
-    friend Complex& operator*=(Complex& z1, int& d);
+    friend HyperbolicComplex& operator*=(HyperbolicComplex& z1, int& d);
 
     /// <summary>
     /// Оператор деления комплексных чисел
@@ -214,7 +211,7 @@ public:
     /// <param name="z1">- комплексное число</param>
     /// <param name="z2">- комплексное число</param>
     /// <returns>Частное комплексных чисел</returns>
-    friend Complex operator/(Complex z1, Complex z2);
+    friend HyperbolicComplex operator/(HyperbolicComplex z1, HyperbolicComplex z2);
 
     /// <summary>
     /// Оператор деления комплексного числа на вещественное
@@ -222,11 +219,11 @@ public:
     /// <param name="z">- комплексное число</param>
     /// <param name="d">- вещественное число</param>
     /// <returns>Частное комплексного и вещественного чисел</returns>
-    friend Complex operator/(Complex z, double d);
+    friend HyperbolicComplex operator/(HyperbolicComplex z, double d);
 
-    friend Complex operator/(Complex z, float d);
+    friend HyperbolicComplex operator/(HyperbolicComplex z, float d);
 
-    friend Complex operator/(Complex z, int d);
+    friend HyperbolicComplex operator/(HyperbolicComplex z, int d);
 
     /// <summary>
     /// Оператор деления вещественного числа на комплексное
@@ -234,21 +231,21 @@ public:
     /// <param name="d">- вещественное число</param>
     /// <param name="z">- комплексное число</param>
     /// <returns>Частное вещественного и комплексного чисел</returns>
-    friend Complex operator/(double d, Complex z);
+    friend HyperbolicComplex operator/(double d, HyperbolicComplex z);
 
-    friend Complex operator/(float d, Complex z);
+    friend HyperbolicComplex operator/(float d, HyperbolicComplex z);
 
-    friend Complex operator/(int d, Complex z);
+    friend HyperbolicComplex operator/(int d, HyperbolicComplex z);
 
-    friend Complex& operator/=(Complex& z1, Complex& z2);
+    friend HyperbolicComplex& operator/=(HyperbolicComplex& z1, HyperbolicComplex& z2);
 
-    friend Complex& operator/=(Complex& z1, double& d);
+    friend HyperbolicComplex& operator/=(HyperbolicComplex& z1, double& d);
 
-    friend Complex& operator/=(Complex& z1, float& d);
+    friend HyperbolicComplex& operator/=(HyperbolicComplex& z1, float& d);
 
-    friend Complex& operator/=(Complex& z1, int& d);
+    friend HyperbolicComplex& operator/=(HyperbolicComplex& z1, int& d);
 
-    Complex operator-() const;
+    HyperbolicComplex operator-() const;
 
     /// <summary>
     /// Оператор вывода комплексного числа в консоль
@@ -256,15 +253,12 @@ public:
     /// <param name="out">- поток вывода в консоль</param>
     /// <param name="z">- комплексное число</param>
     /// <returns>Вывод комплексного числа в консоль</returns>
-    friend ostream& operator<<(ostream& out, Complex z);
+    friend ostream& operator<<(ostream& out, HyperbolicComplex z);
 
     /// <summary>
     /// Преобразование комплексного числа в строку, содержащую его запись
     /// </summary>
     /// <returns>Строка, содержащая запись комплексного числа</returns>
     string ToString();
-    string ToStringTrig();
-    string ToStringExp();
-    string ToStringExp2();
-    //string ToStringExp3();
 };
+

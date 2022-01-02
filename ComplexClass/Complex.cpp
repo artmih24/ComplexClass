@@ -72,7 +72,6 @@ Complex::Complex(string complex)
     this->abs = Abs(this->re, this->im);
     this->arg = Arg(this->re, this->im);
     this->i = i;
-    this->sgn = Sgn(this->re, this->im);
 }
 
 double Complex::Abs(double re, double im)
@@ -121,20 +120,20 @@ int Complex::Sgn() {
     }
 }
 
-int Complex::Sgn(double re, double im) {
-    double abs = Abs(re, im);
-    if (abs == 0)
-        return 0;
-    else {
-        Complex z = Complex(re, im);
-        Complex abs = z / abs;
-        double abs_d = abs.Abs();
-        if (abs_d > 0)
-            return 1;
-        else
-            return -1;
-    }
-}
+//int Complex::Sgn(double re, double im) {
+//    double abs = Abs(re, im);
+//    if (abs == 0)
+//        return 0;
+//    else {
+//        Complex z = Complex(re, im);
+//        Complex abs = z / abs;
+//        double abs_d = abs.Abs();
+//        if (abs_d > 0)
+//            return 1;
+//        else
+//            return -1;
+//    }
+//}
 
 Complex Complex::Conjugate()
 {
@@ -462,7 +461,7 @@ string Complex::ToStringExp2()
     return to_string(this->abs) + " * exp(" + i + " * " + to_string(this->arg) + ")";
 }
 
-string Complex::ToStringExp3()
-{
-    return to_string(this->abs) + " ∠ " + to_string(this->arg);
-}
+//string Complex::ToStringExp3()
+//{
+//    return to_string(this->abs) + " ∠ " + to_string(this->arg);
+//}

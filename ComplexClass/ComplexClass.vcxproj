@@ -142,11 +142,13 @@
     <ClCompile Include="Complex.cpp" />
     <ClCompile Include="ComplexClass.cpp" />
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="HyperbolicComplex.cpp" />
     <ClCompile Include="Quaternion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Complex.h" />
     <ClInclude Include="Functions.h" />
+    <ClInclude Include="HyperbolicComplex.h" />
     <ClInclude Include="Quaternion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
