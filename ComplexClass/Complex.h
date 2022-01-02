@@ -48,6 +48,18 @@ public:
 
     Complex(int re, int im = 0);
 
+    Complex(double re, float im);
+
+    Complex(double re, int im);
+
+    Complex(float re, double im);
+
+    Complex(float re, int im);
+
+    Complex(int re, double im);
+
+    Complex(int re, float im);
+
     /// <summary>
     /// Комплексное число
     /// </summary>
@@ -237,6 +249,8 @@ public:
     friend Complex& operator/=(Complex& z1, float& d);
 
     friend Complex& operator/=(Complex& z1, int& d);
+
+    Complex operator-() const;
 
     /// <summary>
     /// Оператор вывода комплексного числа в консоль

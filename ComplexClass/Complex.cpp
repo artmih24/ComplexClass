@@ -38,6 +38,54 @@ Complex::Complex(int re, int im)
     this->arg = Arg(this->re, this->im);
 }
 
+Complex::Complex(double re, float im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+}
+
+Complex::Complex(double re, int im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+}
+
+Complex::Complex(float re, double im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+}
+
+Complex::Complex(float re, int im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+}
+
+Complex::Complex(int re, double im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+}
+
+Complex::Complex(int re, float im)
+{
+    this->re = re;
+    this->im = im;
+    this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+}
+
 Complex::Complex(string complex)
 {
     string re_s, im_s;
@@ -350,6 +398,10 @@ Complex& operator/=(Complex& z1, int& d)
 {
     z1 = z1 / d;
     return z1;
+}
+
+Complex Complex::operator-() const {
+    return Complex(-this->re, -this->im);
 }
 
 ostream& operator<<(ostream& out, Complex z)
