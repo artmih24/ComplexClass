@@ -32,6 +32,10 @@ public:
     /// </summary>
     double arg;
 
+    string i;
+
+    int sgn;
+
     /// <summary>
     /// Комплексное число по умолчанию - 0+0j
     /// </summary>
@@ -42,23 +46,11 @@ public:
     /// </summary>
     /// <param name="re">- вещественная часть комплексного числа</param>
     /// <param name="im">- мнимая часть комплексного числа, по умолчанию - 0</param>
-    Complex(double re, double im = 0);
+    Complex(double re, double im = 0, string i = "j");
 
-    Complex(float re, float im = 0);
+    Complex(float re, float im = 0, string i = "j");
 
-    Complex(int re, int im = 0);
-
-    Complex(double re, float im);
-
-    Complex(double re, int im);
-
-    Complex(float re, double im);
-
-    Complex(float re, int im);
-
-    Complex(int re, double im);
-
-    Complex(int re, float im);
+    Complex(int re, int im = 0, string i = "j");
 
     /// <summary>
     /// Комплексное число
@@ -84,11 +76,17 @@ public:
 
     double Arg();
 
+    int Sgn();
+
+    int Sgn(double re, double im);
+
     /// <summary>
     /// Комплексно-сопряженное число
     /// </summary>
     /// <returns>Комплексно-сопряженное число</returns>
     Complex Conjugate();
+
+    Complex Sqrt();
 
     /// <summary>
     /// Оператор сложения комплексных чисел
@@ -265,4 +263,8 @@ public:
     /// </summary>
     /// <returns>Строка, содержащая запись комплексного числа</returns>
     string ToString();
+    string ToStringTrig();
+    string ToStringExp();
+    string ToStringExp2();
+    string ToStringExp3();
 };

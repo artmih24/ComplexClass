@@ -1,4 +1,4 @@
-#include "Complex.h"
+﻿#include "Complex.h"
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <string>
@@ -12,78 +12,34 @@ Complex::Complex()
     this->im = 0;
     this->abs = Abs(this->re, this->im);
     this->arg = Arg(this->re, this->im);
+    this->i = "j";
 }
 
-Complex::Complex(double re, double im)
+Complex::Complex(double re, double im, string i)
 {
     this->re = re;
     this->im = im;
     this->abs = Abs(this->re, this->im);
     this->arg = Arg(this->re, this->im);
+    this->i = i;
 }
 
-Complex::Complex(float re, float im)
+Complex::Complex(float re, float im, string i)
 {
     this->re = re;
     this->im = im;
     this->abs = Abs(this->re, this->im);
     this->arg = Arg(this->re, this->im);
+    this->i = i;
 }
 
-Complex::Complex(int re, int im)
+Complex::Complex(int re, int im, string i)
 {
     this->re = re;
     this->im = im;
     this->abs = Abs(this->re, this->im);
     this->arg = Arg(this->re, this->im);
-}
-
-Complex::Complex(double re, float im)
-{
-    this->re = re;
-    this->im = im;
-    this->abs = Abs(this->re, this->im);
-    this->arg = Arg(this->re, this->im);
-}
-
-Complex::Complex(double re, int im)
-{
-    this->re = re;
-    this->im = im;
-    this->abs = Abs(this->re, this->im);
-    this->arg = Arg(this->re, this->im);
-}
-
-Complex::Complex(float re, double im)
-{
-    this->re = re;
-    this->im = im;
-    this->abs = Abs(this->re, this->im);
-    this->arg = Arg(this->re, this->im);
-}
-
-Complex::Complex(float re, int im)
-{
-    this->re = re;
-    this->im = im;
-    this->abs = Abs(this->re, this->im);
-    this->arg = Arg(this->re, this->im);
-}
-
-Complex::Complex(int re, double im)
-{
-    this->re = re;
-    this->im = im;
-    this->abs = Abs(this->re, this->im);
-    this->arg = Arg(this->re, this->im);
-}
-
-Complex::Complex(int re, float im)
-{
-    this->re = re;
-    this->im = im;
-    this->abs = Abs(this->re, this->im);
-    this->arg = Arg(this->re, this->im);
+    this->i = i;
 }
 
 Complex::Complex(string complex)
@@ -114,6 +70,9 @@ Complex::Complex(string complex)
         this->abs = Abs(this->re, this->im);
     }
     this->abs = Abs(this->re, this->im);
+    this->arg = Arg(this->re, this->im);
+    this->i = i;
+    this->sgn = Sgn(this->re, this->im);
 }
 
 double Complex::Abs(double re, double im)
@@ -148,9 +107,46 @@ double Complex::Arg()
             return -M_PI + atan(this->im / this->re);
 }
 
+int Complex::Sgn() {
+    if (this->abs == 0)
+        return 0;
+    else {
+        Complex z = Complex(this->re, this->im);
+        Complex abs = z / this->abs;
+        double abs_d = abs.Abs();
+        if (abs_d > 0)
+            return 1;
+        else
+            return -1;
+    }
+}
+
+int Complex::Sgn(double re, double im) {
+    double abs = Abs(re, im);
+    if (abs == 0)
+        return 0;
+    else {
+        Complex z = Complex(re, im);
+        Complex abs = z / abs;
+        double abs_d = abs.Abs();
+        if (abs_d > 0)
+            return 1;
+        else
+            return -1;
+    }
+}
+
 Complex Complex::Conjugate()
 {
     return Complex(this->re, -this->im);
+}
+
+Complex Complex::Sqrt() {
+    Complex z_im = Complex(0.0, this->im);
+    int im_sgn = z_im.Sgn();
+    double r_re = sqrt(this->re + this->abs / 2);
+    double r_im = im_sgn * sqrt(-this->re + this->abs / 2);
+    return Complex(r_re, r_im);
 }
 
 Complex operator+(Complex z1, Complex z2)
@@ -449,4 +445,24 @@ string Complex::ToString()
                 return to_string(0);
         }
     }
+}
+
+string Complex::ToStringTrig()
+{
+    return to_string(this->abs) + " * (cos(" + to_string(this->arg) + ") + " + i + " * sin(" + to_string(this->arg) + "))";
+}
+
+string Complex::ToStringExp()
+{
+    return to_string(this->abs) + " * e ^ ("  + i + " * " + to_string(this->arg) + ")";
+}
+
+string Complex::ToStringExp2()
+{
+    return to_string(this->abs) + " * exp(" + i + " * " + to_string(this->arg) + ")";
+}
+
+string Complex::ToStringExp3()
+{
+    return to_string(this->abs) + " ∠ " + to_string(this->arg);
 }

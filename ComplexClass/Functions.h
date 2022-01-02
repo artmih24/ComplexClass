@@ -1,4 +1,4 @@
 #pragma once
 #include "Complex.h"
 
-Complex Sqrt(double num, bool pos = true);
+Complex RealSqrt(double num, bool pos = true);

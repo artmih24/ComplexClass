@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "Complex.h"
+#include "Functions.h"
 using namespace std;
 
 int main()
